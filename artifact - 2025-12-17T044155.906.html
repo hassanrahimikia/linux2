@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درسنامه کامل آزمایشگاه سیستم عامل - دستورات لینوکس</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>درسنامه کامل آزمایشگاه سیستم عامل</h1>
+            <p class="subtitle">راهنمای جامع دستورات لینوکس و مدیریت سیستم</p>
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#intro">مقدمه</a></li>
+            <li><a href="#navigation">مدیریت مسیرها</a></li>
+            <li><a href="#directories">مدیریت پوشه‌ها</a></li>
+            <li><a href="#files">مدیریت فایل‌ها</a></li>
+            <li><a href="#permissions">مجوزها و دسترسی‌ها</a></li>
+            <li><a href="#users">مدیریت کاربران</a></li>
+            <li><a href="#text">پردازش متن</a></li>
+            <li><a href="#system">اطلاعات سیستم</a></li>
+            <li><a href="#advanced">دستورات پیشرفته</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="intro" class="section">
+            <h2>مقدمه</h2>
+            <div class="content-box">
+                <p>این درسنامه شامل تمامی دستورات پایه و پیشرفته لینوکس است که در آزمایشگاه سیستم عامل نیاز دارید. هر دستور با توضیحات کامل، مثال‌های کاربردی و نکات مهم ارائه شده است.</p>
+                <div class="info-box">
+                    <strong>نکته:</strong> برای اجرای دستوراتی که نیاز به دسترسی مدیریتی دارند، از sudo استفاده کنید.
+                </div>
+            </div>
+        </section>
+
+        <section id="navigation" class="section">
+            <h2>مدیریت مسیرها و ناوبری</h2>
+            
+            <div class="command-block">
+                <h3>cd / - رفتن به پوشه روت</h3>
+                <div class="code-container">
+                    <code>cd /</code>
+                </div>
+                <p><strong>توضیح:</strong> این دستور شما را مستقیماً به ریشه سیستم فایل منتقل می‌کند. پوشه روت بالاترین سطح در ساختار درختی لینوکس است.</p>
+                <div class="example">
+                    <strong>مثال کاربردی:</strong>
+                    <pre>$ pwd
+/home/user/documents
+$ cd /
+$ pwd
+/</pre>
+                </div>
+            </div>
+
+            <div class="command-block">
+                <h3>cd .. - بازگشت به پوشه قبلی</h3>
+                <div class="code-container">
+                    <code>cd ..</code>
+                </div>
+                <p><strong>توضیح:</strong> یک سطح به عقب برمی‌گردد. در ساختار درختی فایل، به پوشه والد منتقل می‌شوید.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>cd ../.. - بازگشت دو سطح به عقب</h3>
+                <div class="code-container">
+                    <code>cd ../..</code>
+                </div>
+                <p><strong>توضیح:</strong> دو سطح در ساختار درختی به عقب برمی‌گردد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>cd ~ - رفتن به پوشه خانگی</h3>
+                <div class="code-container">
+                    <code>cd ~</code>
+                </div>
+                <p><strong>توضیح:</strong> شما را مستقیماً به Home Directory کاربر جاری منتقل می‌کند.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>cd /home - رفتن به پوشه home</h3>
+                <div class="code-container">
+                    <code>cd /home</code>
+                </div>
+                <p><strong>توضیح:</strong> به پوشه home در ریشه سیستم منتقل می‌شوید.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>pwd - نمایش مسیر فعلی</h3>
+                <div class="code-container">
+                    <code>pwd</code>
+                </div>
+                <p><strong>توضیح:</strong> Print Working Directory - مسیر کامل پوشه فعلی را نمایش می‌دهد.</p>
+            </div>
+        </section>
+
+        <section id="directories" class="section">
+            <h2>مدیریت پوشه‌ها</h2>
+
+            <div class="command-block">
+                <h3>mkdir - ساخت پوشه جدید</h3>
+                <div class="code-container">
+                    <code>mkdir folder_name</code>
+                </div>
+                <p><strong>توضیح:</strong> Make Directory - یک پوشه جدید ایجاد می‌کند.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>mkdir -p - ساخت پوشه‌های تو در تو</h3>
+                <div class="code-container">
+                    <code>mkdir -p test/dir2/dir3</code>
+                </div>
+                <p><strong>توضیح:</strong> پرچم -p به شما اجازه می‌دهد چندین پوشه تو در تو را همزمان بسازید.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>ls - نمایش محتویات</h3>
+                <div class="code-container">
+                    <code>ls</code>
+                </div>
+                <p><strong>توضیح:</strong> لیست فایل‌ها و پوشه‌ها را نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>ls -l - نمایش جزئیات</h3>
+                <div class="code-container">
+                    <code>ls -l</code>
+                </div>
+                <p><strong>توضیح:</strong> محتویات را به صورت لیستی با جزئیات نمایش می‌دهد شامل مجوزها، مالک، اندازه و تاریخ.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>ls -la - نمایش فایل‌های مخفی</h3>
+                <div class="code-container">
+                    <code>ls -la</code>
+                </div>
+                <p><strong>توضیح:</strong> تمام فایل‌ها از جمله فایل‌های مخفی را نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>ls -lah - نمایش با واحد خوانا</h3>
+                <div class="code-container">
+                    <code>ls -lah</code>
+                </div>
+                <p><strong>توضیح:</strong> اندازه فایل‌ها را به صورت خوانا نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>rm -rf - حذف پوشه</h3>
+                <div class="code-container">
+                    <code>rm -rf dir2</code>
+                </div>
+                <p><strong>توضیح:</strong> پوشه و تمام محتویات آن را بدون تأیید حذف می‌کند.</p>
+                <div class="warning-box">
+                    <strong>هشدار:</strong> این دستور بسیار خطرناک است و غیرقابل بازگشت می‌باشد!
+                </div>
+            </div>
+
+            <div class="command-block">
+                <h3>tree - نمایش ساختار درختی</h3>
+                <div class="code-container">
+                    <code>tree</code>
+                </div>
+                <p><strong>توضیح:</strong> ساختار پوشه‌ها را به صورت درختی نمایش می‌دهد.</p>
+                <div class="info-box">
+                    <strong>نصب:</strong><br>
+                    sudo apt update<br>
+                    sudo apt install tree
+                </div>
+            </div>
+        </section>
+
+        <section id="files" class="section">
+            <h2>مدیریت فایل‌ها</h2>
+
+            <div class="command-block">
+                <h3>touch - ساخت فایل</h3>
+                <div class="code-container">
+                    <code>touch salam.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> یک فایل خالی ایجاد می‌کند.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>echo - نمایش متن</h3>
+                <div class="code-container">
+                    <code>echo "salam"</code>
+                </div>
+                <p><strong>توضیح:</strong> متن را در ترمینال چاپ می‌کند.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>echo > - نوشتن در فایل</h3>
+                <div class="code-container">
+                    <code>echo "salam" > hello.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> متن را داخل فایل می‌نویسد و محتوای قبلی را پاک می‌کند.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>cat - نمایش محتوای فایل</h3>
+                <div class="code-container">
+                    <code>cat salam.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> محتوای کامل فایل را نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>nano - ویرایشگر nano</h3>
+                <div class="code-container">
+                    <code>nano salam.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> فایل را با ویرایشگر nano باز می‌کند.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>vim - ویرایشگر vim</h3>
+                <div class="code-container">
+                    <code>vim salam.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> فایل را با ویرایشگر vim باز می‌کند.</p>
+                <div class="info-box">
+                    <strong>دستورات vim:</strong><br>
+                    - ESC: خروج از حالت ویرایش<br>
+                    - :q! خروج بدون ذخیره<br>
+                    - :wq ذخیره و خروج
+                </div>
+            </div>
+
+            <div class="command-block">
+                <h3>mv - انتقال و تغییر نام</h3>
+                <div class="code-container">
+                    <code>mv salam.txt dir2/name.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> فایل را منتقل کرده و نام آن را تغییر می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>wc - شمارش</h3>
+                <div class="code-container">
+                    <code>wc salam.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> تعداد خطوط، کلمات و کاراکترها را نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>wc -l - شمارش خطوط</h3>
+                <div class="code-container">
+                    <code>wc -l salam.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> فقط تعداد خطوط را نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>wc -w - شمارش کلمات</h3>
+                <div class="code-container">
+                    <code>wc -w salam.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> فقط تعداد کلمات را نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>wc -c - شمارش کاراکترها</h3>
+                <div class="code-container">
+                    <code>wc -c salam.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> فقط تعداد کاراکترها را نمایش می‌دهد.</p>
+            </div>
+        </section>
+
+        <section id="permissions" class="section">
+            <h2>مجوزها و دسترسی‌ها</h2>
+
+            <div class="content-box">
+                <h3>درک سیستم مجوزها</h3>
+                <p>در لینوکس هر فایل دارای مجوزهای rwx است:</p>
+                <ul>
+                    <li><strong>r (Read)</strong> = 4 - خواندن</li>
+                    <li><strong>w (Write)</strong> = 2 - نوشتن</li>
+                    <li><strong>x (Execute)</strong> = 1 - اجرا</li>
+                </ul>
+                <p>مجموع اعداد مجوز را مشخص می‌کند:</p>
+                <ul>
+                    <li>7 = rwx (همه مجوزها)</li>
+                    <li>6 = rw- (خواندن و نوشتن)</li>
+                    <li>5 = r-x (خواندن و اجرا)</li>
+                    <li>4 = r-- (فقط خواندن)</li>
+                </ul>
+            </div>
+
+            <div class="command-block">
+                <h3>chmod - تغییر مجوزها</h3>
+                <div class="code-container">
+                    <code>sudo chmod 744 amir</code>
+                </div>
+                <p><strong>توضیح:</strong> مجوزهای دسترسی را تغییر می‌دهد. 744 یعنی: مالک (rwx)، گروه (r)، دیگران (r)</p>
+            </div>
+
+            <div class="command-block">
+                <h3>chmod -R - تغییر بازگشتی</h3>
+                <div class="code-container">
+                    <code>sudo chmod -R 744 hoda</code>
+                </div>
+                <p><strong>توضیح:</strong> مجوزها را برای پوشه و تمام محتویات آن تغییر می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>sudo -i - ورود به root</h3>
+                <div class="code-container">
+                    <code>sudo -i</code>
+                </div>
+                <p><strong>توضیح:</strong> به حساب کاربری root وارد می‌شوید.</p>
+                <div class="warning-box">
+                    <strong>هشدار:</strong> در حالت root تمام دسترسی‌ها را دارید. با احتیاط عمل کنید!
+                </div>
+            </div>
+        </section>
+
+        <section id="users" class="section">
+            <h2>مدیریت کاربران</h2>
+
+            <div class="command-block">
+                <h3>sudo adduser - ساخت کاربر جدید</h3>
+                <div class="code-container">
+                    <code>sudo adduser roji</code>
+                </div>
+                <p><strong>توضیح:</strong> یک کاربر جدید با نام مشخص شده ایجاد می‌کند.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>passwd - تغییر رمز عبور</h3>
+                <div class="code-container">
+                    <code>passwd</code>
+                </div>
+                <p><strong>توضیح:</strong> رمز عبور کاربر فعلی را تغییر می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>id - اطلاعات کاربر</h3>
+                <div class="code-container">
+                    <code>id rojina</code>
+                </div>
+                <p><strong>توضیح:</strong> شناسه کاربر و گروه را نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>cd /etc - پوشه تنظیمات</h3>
+                <div class="code-container">
+                    <code>cd /etc</code>
+                </div>
+                <p><strong>توضیح:</strong> به پوشه etc که شامل فایل‌های پیکربندی سیستم است می‌رود.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>cat /etc/passwd - لیست کاربران</h3>
+                <div class="code-container">
+                    <code>cat /etc/passwd</code>
+                </div>
+                <p><strong>توضیح:</strong> لیست تمام کاربران سیستم را نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>exit - خروج</h3>
+                <div class="code-container">
+                    <code>exit</code>
+                </div>
+                <p><strong>توضیح:</strong> از حساب کاربری فعلی خارج می‌شوید (log out).</p>
+            </div>
+        </section>
+
+        <section id="text" class="section">
+            <h2>پردازش متن</h2>
+
+            <div class="command-block">
+                <h3>uniq - حذف تکراری‌ها</h3>
+                <div class="code-container">
+                    <code>uniq salam.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> خطوط تکراری پشت سر هم را حذف کرده و یکی نگه می‌دارد.</p>
+                <div class="info-box">
+                    <strong>نکته:</strong> این دستور فقط خطوط پشت سر هم را بررسی می‌کند.
+                </div>
+            </div>
+
+            <div class="command-block">
+                <h3>sort - مرتب‌سازی</h3>
+                <div class="code-container">
+                    <code>sort salam.txt</code>
+                </div>
+                <p><strong>توضیح:</strong> خطوط فایل را به ترتیب الفبایی مرتب می‌کند.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>cat | sort - ترکیب دستورات</h3>
+                <div class="code-container">
+                    <code>cat salam.txt | sort</code>
+                </div>
+                <p><strong>توضیح:</strong> ابتدا محتوا را مرتب کرده سپس نمایش می‌دهد. عملگر | خروجی یک دستور را به ورودی دستور بعدی می‌فرستد.</p>
+            </div>
+        </section>
+
+        <section id="system" class="section">
+            <h2>اطلاعات سیستم</h2>
+
+            <div class="command-block">
+                <h3>ip a - اطلاعات شبکه</h3>
+                <div class="code-container">
+                    <code>ip a</code>
+                </div>
+                <p><strong>توضیح:</strong> لیست کارت‌های شبکه و آدرس‌های IP را نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>ifconfig - پیکربندی شبکه</h3>
+                <div class="code-container">
+                    <code>ifconfig</code>
+                </div>
+                <p><strong>توضیح:</strong> اطلاعات کارت‌های شبکه را به ترتیب نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>df -h - فضای دیسک</h3>
+                <div class="code-container">
+                    <code>df -h</code>
+                </div>
+                <p><strong>توضیح:</strong> میزان استفاده از فضای دیسک را به صورت خوانا نمایش می‌دهد.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>sudo apt update - به‌روزرسانی لیست پکیج‌ها</h3>
+                <div class="code-container">
+                    <code>sudo apt update</code>
+                </div>
+                <p><strong>توضیح:</strong> لیست پکیج‌های موجود را به‌روزرسانی می‌کند.</p>
+            </div>
+        </section>
+
+        <section id="advanced" class="section">
+            <h2>دستورات پیشرفته</h2>
+
+            <div class="command-block">
+                <h3>sudo sh -c - اجرای دستورات پیچیده با sudo</h3>
+                <div class="code-container">
+                    <code>sudo sh -c "ls -lah >> /home/salam.txt"</code>
+                </div>
+                <p><strong>توضیح:</strong> برای redirect کردن خروجی به فایل‌های سیستمی که نیاز به دسترسی root دارند.</p>
+            </div>
+
+            <div class="command-block">
+                <h3>WSL --install - نصب WSL</h3>
+                <div class="code-container">
+                    <code>WSL --install</code>
+                </div>
+                <p><strong>توضیح:</strong> در ویندوز، زیرسیستم لینوکس را نصب می‌کند.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>نکات مهم و خلاصه</h2>
+            <div class="content-box">
+                <ul>
+                    <li>همیشه قبل از اجرای دستورات خطرناک مانند rm -rf دقت کنید</li>
+                    <li>از sudo فقط زمانی استفاده کنید که واقعاً نیاز دارید</li>
+                    <li>برای یادگیری بهتر، دستورات را خودتان تمرین کنید</li>
+                    <li>از man command برای دیدن راهنمای کامل هر دستور استفاده کنید</li>
+                    <li>قبل از تغییر مجوزها، از تأثیر آن مطمئن شوید</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>درسنامه آزمایشگاه سیستم عامل - تمامی حقوق محفوظ است</p>
+            <p>برای یادگیری بهتر، حتماً دستورات را عملی تمرین کنید</p>
+        </div>
+    </footer>
+</body>
+</html>

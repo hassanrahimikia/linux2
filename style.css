@@ -1,0 +1,446 @@
+/* ===== تنظیمات پایه و ریست ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazir', 'Tahoma', sans-serif;
+    line-height: 1.8;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    direction: rtl;
+    padding-right: 280px;
+}
+
+/* ===== هدر ===== */
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 40px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header .subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* ===== کانتینر ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* ===== سایدبار ===== */
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+    padding: 30px 20px;
+    overflow-y: auto;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 99;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1.05em;
+    border-right: 4px solid transparent;
+}
+
+.sidebar a:hover {
+    background: rgba(52, 152, 219, 0.3);
+    border-right-color: #3498db;
+    transform: translateX(-5px);
+}
+
+/* ===== محتوای اصلی ===== */
+main {
+    background: white;
+    margin: 30px 30px 30px 0;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== بخش‌ها ===== */
+.section {
+    margin-bottom: 60px;
+    scroll-margin-top: 120px;
+}
+
+.section h2 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #3498db;
+    position: relative;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #e74c3c, #f39c12);
+}
+
+/* ===== باکس محتوا ===== */
+.content-box {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border-right: 5px solid #3498db;
+}
+
+.content-box h3 {
+    color: #2980b9;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.content-box p {
+    margin-bottom: 15px;
+}
+
+.content-box ul {
+    margin-right: 25px;
+    margin-bottom: 15px;
+}
+
+.content-box li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* ===== بلوک دستورات ===== */
+.command-block {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.command-block:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+.command-block h3 {
+    color: #e74c3c;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.command-block h3::before {
+    content: '▶';
+    margin-left: 10px;
+    color: #3498db;
+    font-size: 0.8em;
+}
+
+/* ===== کانتینر کد ===== */
+.code-container {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow-x: auto;
+}
+
+.code-container::before {
+    content: 'Terminal';
+    position: absolute;
+    top: -12px;
+    right: 15px;
+    background: #3498db;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 5px;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.code-container code {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1em;
+    display: block;
+    direction: ltr;
+    text-align: left;
+}
+
+/* ===== مثال‌ها ===== */
+.example {
+    background: #fff9e6;
+    border-right: 4px solid #f39c12;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.example strong {
+    color: #d68910;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.example pre {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    direction: ltr;
+    text-align: left;
+}
+
+/* ===== باکس اطلاعات ===== */
+.info-box {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-right: 5px solid #2196f3;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 3px 10px rgba(33, 150, 243, 0.2);
+}
+
+.info-box strong {
+    color: #1976d2;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* ===== باکس هشدار ===== */
+.warning-box {
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-right: 5px solid #f44336;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 3px 10px rgba(244, 67, 54, 0.2);
+}
+
+.warning-box strong {
+    color: #c62828;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.warning-box::before {
+    content: '⚠️ ';
+    font-size: 1.3em;
+}
+
+/* ===== فوتر ===== */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+/* ===== اسکرول بار سفارشی ===== */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3498db 0%, #2980b9 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2980b9 0%, #21618c 100%);
+}
+
+/* ===== انیمیشن‌ها ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ===== ریسپانسیو ===== */
+@media (max-width: 1024px) {
+    body {
+        padding-right: 0;
+    }
+    
+    .sidebar {
+        width: 250px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+    
+    main {
+        margin: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    
+    header .subtitle {
+        font-size: 1em;
+    }
+    
+    .section h2 {
+        font-size: 1.5em;
+    }
+    
+    .command-block {
+        padding: 15px;
+    }
+    
+    main {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .code-container code {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.4em;
+    }
+    
+    .section h2 {
+        font-size: 1.3em;
+    }
+    
+    .command-block h3 {
+        font-size: 1.1em;
+    }
+}
+
+/* ===== بهبود چاپ ===== */
+@media print {
+    body {
+        background: white;
+        padding-right: 0;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+    
+    header {
+        background: #2c3e50;
+        position: relative;
+    }
+    
+    main {
+        box-shadow: none;
+        margin: 0;
+    }
+    
+    .command-block {
+        page-break-inside: avoid;
+    }
+}
+
+/* ===== افکت‌های اضافی ===== */
+.command-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(52, 152, 219, 0.03) 100%);
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.section:hover h2 {
+    color: #3498db;
+    transition: color 0.3s ease;
+}
+
+/* ===== استایل لینک‌ها ===== */
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* ===== باکس سایه برای تمرکز بهتر ===== */
+.command-block:focus-within {
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.3);
+}
