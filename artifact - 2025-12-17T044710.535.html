@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درسنامه آزمایشگاه سیستم عامل | OS Lab Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- استفاده از فونت وزیرمتن برای زیبایی بیشتر -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1>درسنامه جامع آزمایشگاه سیستم عامل</h1>
+            <p>مجموعه دستورات و نکات کاربردی ترم جاری</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- بخش اول: ناوبری و کار با دایرکتوری ها -->
+        <section class="card">
+            <h2>۱. ناوبری و کار با دایرکتوری‌ها (Navigation)</h2>
+            <div class="command-list">
+                
+                <div class="cmd-item">
+                    <code>cd /</code>
+                    <p>رفتن به دایرکتوری ریشه (Root Directory). این اصلی‌ترین پوشه در لینوکس است.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>cd ~</code> <span class="or">یا</span> <code>cd /home</code>
+                    <p>رفتن به دایرکتوری Home. علامت <code>~</code> میانبری برای پوشه خانگی کاربر فعلی است.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>cd ..</code>
+                    <p>یک مرحله به عقب برمی‌گردد (به دایرکتوری والد).</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>cd ../..</code>
+                    <p>دو مرحله به عقب برمی‌گردد.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>pwd</code>
+                    <p><strong>Print Working Directory:</strong> مسیر کامل جایی که الان در آن هستید را نمایش می‌دهد.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>ls -l</code>
+                    <p>لیست کردن فایل‌ها و پوشه‌ها با جزئیات کامل (مجوزها، سایز، تاریخ).</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>ls -la</code> <span class="or">یا</span> <code>ls -lah</code>
+                    <p>نمایش تمام فایل‌ها حتی فایل‌های مخفی (Hidden Files که با نقطه شروع می‌شوند). سوییچ <code>-h</code> حجم‌ها را خوانا (Human readable) می‌کند.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>mkdir [name]</code>
+                    <p><strong>Make Directory:</strong> ساخت یک پوشه جدید.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>mkdir -p test/dir2/dir3</code>
+                    <p>ساخت پوشه‌های تو در تو به صورت یکجا. اگر پوشه‌های والد وجود نداشته باشند، ساخته می‌شوند.</p>
+                </div>
+                 <div class="cmd-item">
+                    <code>tree</code>
+                    <p>نمایش ساختار فایل‌ها و پوشه‌ها به صورت درختی. (نیاز به نصب دارد).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش دوم: مدیریت فایل ها -->
+        <section class="card">
+            <h2>۲. مدیریت و ویرایش فایل‌ها (File Manipulation)</h2>
+            <div class="command-list">
+                
+                <div class="cmd-item">
+                    <code>touch salam.txt</code>
+                    <p>ساخت یک فایل متنی خالی جدید. اگر فایل وجود داشته باشد، تاریخ ویرایش آن را بروز می‌کند.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>rm -rf dir2</code>
+                    <p>حذف پوشه و محتویات آن. <code>-r</code> (Recursive) برای حذف پوشه و <code>-f</code> (Force) برای حذف بدون سوال پرسیدن است. <strong>با احتیاط استفاده شود!</strong></p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>mv salam.txt dir2/name.txt</code>
+                    <p><strong>Move:</strong> انتقال فایل <code>salam.txt</code> به پوشه <code>dir2</code> و تغییر نام همزمان آن به <code>name.txt</code>.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>cat salam.txt</code>
+                    <p>نمایش محتویات فایل متنی در ترمینال.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>echo "salam"</code>
+                    <p>چاپ کردن عبارت salam در خروجی استاندارد (ترمینال).</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>echo "salam" > hello.txt</code>
+                    <p><strong>Redirection (Overwrite):</strong> عبارت salam را داخل فایل <code>hello.txt</code> می‌ریزد. اگر فایل باشد، محتویات قبلی پاک می‌شود.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>sudo sh -c "ls -lha >> /home/salam.txt"</code>
+                    <p><strong>Redirection (Append):</strong> خروجی دستور را به انتهای فایل اضافه می‌کند (بدون پاک کردن محتوای قبلی). استفاده از <code>sh -c</code> برای رفع مشکل Permission denied هنگام ریدایرکت با sudo است.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش سوم: پردازش متن -->
+        <section class="card">
+            <h2>۳. پردازش متن و اطلاعات (Text Processing)</h2>
+            <div class="command-list">
+                
+                <div class="cmd-item">
+                    <code>wc salam.txt</code>
+                    <p><strong>Word Count:</strong> نمایش تعداد خطوط، کلمات و کاراکترها.</p>
+                    <ul class="sub-list">
+                        <li><code>wc -l</code>: فقط تعداد خطوط</li>
+                        <li><code>wc -w</code>: فقط تعداد کلمات</li>
+                        <li><code>wc -c</code>: فقط تعداد کاراکترها</li>
+                    </ul>
+                </div>
+
+                <div class="cmd-item">
+                    <code>sort salam.txt</code>
+                    <p>مرتب‌سازی خطوط فایل به صورت الفبایی.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>uniq salam.txt</code>
+                    <p>حذف خطوط تکراری <strong>پشت سر هم</strong>. (معمولا قبلش باید فایل sort شده باشد).</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>cat salam.txt | sort</code>
+                    <p><strong>Piping:</strong> خروجی دستور اول (cat) را به عنوان ورودی به دستور دوم (sort) می‌دهد.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>nano salam.txt</code>
+                    <p>باز کردن ویرایشگر متنی ساده Nano.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>vim salam.txt</code>
+                    <p>باز کردن ویرایشگر پیشرفته Vim.</p>
+                    <ul class="sub-list">
+                        <li>خروج بدون ذخیره: <code>:q!</code></li>
+                        <li>ذخیره و خروج: <code>:wq</code></li>
+                        <li>برای نوشتن دکمه <code>i</code> و برای دستور دادن دکمه <code>Esc</code> را بزنید.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش چهارم: کاربران و دسترسی ها -->
+        <section class="card">
+            <h2>۴. مدیریت کاربران و دسترسی‌ها (Permissions & Users)</h2>
+            <div class="info-box">
+                <h3>مفهوم کدها (rwx):</h3>
+                <ul>
+                    <li><strong>r (Read) = 4</strong>: اجازه خواندن</li>
+                    <li><strong>w (Write) = 2</strong>: اجازه نوشتن</li>
+                    <li><strong>x (Execute) = 1</strong>: اجازه اجرا کردن</li>
+                </ul>
+                <p>مجموع این اعداد سطح دسترسی را می‌سازد (مثلا ۷ = ۴+۲+۱ یعنی دسترسی کامل).</p>
+            </div>
+
+            <div class="command-list">
+                <div class="cmd-item">
+                    <code>sudo -i</code>
+                    <p>ورود به محیط کاربری Root (Super User).</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>sudo chmod 744 amir</code>
+                    <p>تغییر سطح دسترسی فولدر/فایل amir. (مالک: کامل(7) | گروه: خواندن(4) | دیگران: خواندن(4)).</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>sudo chmod -R 744 hoda</code>
+                    <p>سوییچ <code>-R</code> تغییرات را روی خود پوشه و تمام فایل‌های داخل آن اعمال می‌کند.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>sudo adduser roji</code>
+                    <p>ساخت یک کاربر جدید به نام roji.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>id rojina</code>
+                    <p>نمایش ID کاربر و گروه‌های متعلق به کاربر rojina.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>cat /etc/passwd</code>
+                    <p>مشاهده لیست تمام کاربران سیستم و اطلاعات آنها.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش پنجم: سیستم و شبکه -->
+        <section class="card">
+            <h2>۵. مدیریت سیستم و شبکه (System & Network)</h2>
+            <div class="command-list">
+                <div class="cmd-item">
+                    <code>sudo apt update</code>
+                    <p>بروزرسانی لیست مخازن و پکیج‌ها.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>sudo apt install tree</code>
+                    <p>نصب برنامه جدید (در اینجا tree).</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>ip a</code> <span class="or">یا</span> <code>ifconfig</code>
+                    <p>نمایش وضعیت کارت‌های شبکه و آدرس IP.</p>
+                </div>
+
+                <div class="cmd-item">
+                    <code>df -h</code>
+                    <p>نمایش فضای دیسک و پارتیشن‌ها به صورت خوانا (Disk Free).</p>
+                </div>
+                
+                 <div class="cmd-item">
+                    <code>wsl --install</code>
+                    <p>دستور نصب لینوکس روی ویندوز (Windows Subsystem for Linux).</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>گردآوری شده برای درس آزمایشگاه سیستم عامل | طراحی شده با ❤️</p>
+    </footer>
+
+</body>
+</html>
