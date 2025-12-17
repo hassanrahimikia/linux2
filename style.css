@@ -1,0 +1,176 @@
+/* تنظیمات پایه و ریست */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+    direction: rtl; /* راست‌چین کردن کل صفحه */
+    text-align: right;
+}
+
+/* کانتینر اصلی برای وسط‌چین کردن محتوا */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* هدر سایت */
+.main-header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #fff;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.main-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* کارت‌ها (بخش‌بندی درس‌ها) */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-top: 5px solid #3498db; /* نوار رنگی بالای هر کارت */
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px); /* حرکت جزئی هنگام هاور */
+}
+
+.card h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* لیست دستورات */
+.command-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cmd-item {
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #e1e1e1;
+}
+
+/* استایل کدهای دستور */
+.cmd-item code {
+    display: inline-block;
+    background-color: #2d3436; /* رنگ پس زمینه تیره شبیه ترمینال */
+    color: #00cec9; /* رنگ سبز/آبی روشن برای متن کد */
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    direction: ltr; /* کدها همیشه چپ‌چین باشند */
+    text-align: left;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+.cmd-item p {
+    margin-top: 0.5rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* جداکننده "یا" */
+.or {
+    font-weight: bold;
+    color: #7f8c8d;
+    margin: 0 5px;
+    font-size: 0.9rem;
+}
+
+/* لیست‌های زیرمجموعه */
+.sub-list {
+    margin-top: 0.5rem;
+    padding-right: 1.5rem;
+    list-style-type: disc;
+    color: #666;
+}
+
+.sub-list li {
+    margin-bottom: 0.3rem;
+}
+
+.sub-list code {
+    background-color: #e0e0e0; /* کد های کوچک داخل متن */
+    color: #d63031;
+    padding: 2px 5px;
+    font-size: 0.9rem;
+    box-shadow: none;
+    border: 1px solid #ccc;
+}
+
+/* باکس اطلاعات (برای بخش دسترسی‌ها) */
+.info-box {
+    background-color: #fff3cd;
+    border-right: 5px solid #ffc107;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    color: #856404;
+}
+
+.info-box h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.info-box ul {
+    padding-right: 1.5rem;
+}
+
+/* فوتر */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* واکنش‌گرا (موبایل) */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+
+    .cmd-item code {
+        font-size: 0.9rem;
+        width: 100%; /* در موبایل کد تمام عرض را بگیرد */
+        overflow-x: auto; /* اگر کد طولانی بود اسکرول بخورد */
+    }
+}
